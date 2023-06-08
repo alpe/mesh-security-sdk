@@ -8,7 +8,7 @@ permissions:
   contents: read
 
 jobs:
-  goreleaser:
+  Release artifacts:
     permissions:
       contents: write # for goreleaser/goreleaser-action to create a GitHub release
     runs-on: ubuntu-latest
@@ -34,4 +34,4 @@ jobs:
           body_path: RELEASE_NOTES.md
           tag_name: ${{ github.ref }}
           files: |
-            build/*
+            demo/build/*
