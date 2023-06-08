@@ -8,7 +8,7 @@ permissions:
   contents: read
 
 jobs:
-  Release artifacts:
+  release:
     permissions:
       contents: write # for goreleaser/goreleaser-action to create a GitHub release
     runs-on: ubuntu-latest
