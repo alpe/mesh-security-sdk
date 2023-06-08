@@ -35,3 +35,4 @@ jobs:
           body_path: RELEASE_NOTES.md
           files: |
             demo/build/*
+            tests/e2e/build/*

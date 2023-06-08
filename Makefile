@@ -25,6 +25,7 @@ build:
 
 build-linux-static:
 	$(MAKE) -C demo build-linux-static
+	$(MAKE) -C tests/e2e build-linux
 
 ########################################
 ### Testing
