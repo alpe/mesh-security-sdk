@@ -1,0 +1,29 @@
+name: Release mesh-security
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+permissions:
+  contents: read
+
+jobs:
+  goreleaser:
+    permissions:
+      contents: write # for goreleaser/goreleaser-action to create a GitHub release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-go@v4
+        with:
+          go-version: "1.20"
+          check-latest: true
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v4
+        with:
+          args: release --rm-dist --skip-validate
+          workdir: demo
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
